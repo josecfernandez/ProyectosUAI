@@ -1,0 +1,669 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:p="http://schemas.uipath.com/workflow/activities/word" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:si="clr-namespace:System.IO;assembly=System.Private.CoreLib" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System.Text.RegularExpressions" xmlns:ue="clr-namespace:UiPath.Excel;assembly=UiPath.Excel.Activities" xmlns:ueab="clr-namespace:UiPath.Excel.Activities.Business;assembly=UiPath.Excel.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="NIF" Type="OutArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1174,12203</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="43">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Activities.System.Binding</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Word</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Mail</x:String>
+      <x:String>UiPath.Presentations</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>UiPath.PDF.Activities</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.Shared.Activities.Business</x:String>
+      <x:String>UiPath.Word.Activities</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="65">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Word.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Word</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.Presentations</AssemblyReference>
+      <AssemblyReference>UiPath.Presentations.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.PDF.Activities</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>System.CodeDom</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <sap:WorkflowViewStateService.ViewState>
+    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      <x:Boolean x:Key="ShouldCollapseAll">False</x:Boolean>
+      <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
+    </scg:Dictionary>
+  </sap:WorkflowViewStateService.ViewState>
+  <ueab:SequenceX DisplayName="Single Excel Process Scope" sap:VirtualizedContainerService.HintSize="876,12138" sap2010:WorkflowViewState.IdRef="SequenceX_1">
+    <ueab:SequenceX.Variables>
+      <Variable x:TypeArguments="ue:IWorkbookQuickHandle" Default="[new WorkbookQuickHandle(workbookPath:=&quot;Project_Notebook.xlsx&quot;,visible:=True,autoSave:=False,createNew:=True,readOnly:=False,isWorkspace:=True)]" Name="Notes" />
+      <Variable x:TypeArguments="x:String" Name="texto" />
+      <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="NIF" />
+      <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="NOMBRE" />
+      <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="APELLIDOS" />
+      <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="CORREO" />
+      <Variable x:TypeArguments="x:String" Name="Existe_Usuario" />
+      <Variable x:TypeArguments="x:Object" Name="fecha" />
+      <Variable x:TypeArguments="x:String" Name="var" />
+      <Variable x:TypeArguments="x:Object" Name="EQUIPO" />
+      <Variable x:TypeArguments="x:String" Name="NCrijaEquipo" />
+      <Variable x:TypeArguments="x:String" Name="NSerieEquipo" />
+      <Variable x:TypeArguments="x:String" Name="MarcaEquipo" />
+      <Variable x:TypeArguments="x:String" Name="ModeloEquipo" />
+    </ueab:SequenceX.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Utilizar Navegador Chrome: Incidencias Granada - Autenticacion" sap:VirtualizedContainerService.HintSize="834,12048" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" ScopeGuid="2fd0ceb5-9844-4d76-8fc8-85ad9b4753ed" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Sequence DisplayName="Hacer" sap:VirtualizedContainerService.HintSize="800,11822" sap2010:WorkflowViewState.IdRef="Sequence_5">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Escribir en 'INPUT login_name'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="758,227" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="2fd0ceb5-9844-4d76-8fc8-85ad9b4753ed" Text="jcarlos.fernandez" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="http://gii.gr.sscc.cma.junta-andalucia.es/index.php?redirect=%2Ffront%2Fticket.php&amp;error=3" DesignTimeRectangle="848, 400, 240, 30" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT login_name'" FullSelectorArgument="&lt;webctrl id='login_name' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='login_name' tag='INPUT' type='text' class='' aaname='' /&gt;" Guid="9717f872-7c00-44cf-a424-815bcf02c6d3" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAPQAAAAiCAYAAABoSPTMAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAN9SURBVHhe7d1NTiJBGMbxucccYq4xR5i1d3DpYhbcgBuwc+lmwmIOYALKh8EYA8agSCDKd1AwqcnTk7dTFm9Pd3U3DpBn8Yuhu6pk4d9umha/fP12ZIjoMDBoogPyIejvP36aX7+rZr5Ymvf3dyLaUWgUraJZu+EwaOxgyET7Bc3aUYdBo3ZtAhHtNrS7ETSPzkT7Ce1uBK0NJKL9wKCJDkhuQS8WC9PpdEy9XjfVatU0m03T7XbN29ubOp6I8pdL0JPJxFxeXppKpbLh6urKLJd8XU70GTIH/fr6amq1mhqzuL6+VucSUb4yB/34+KhG7MJRXJtPRPnJHPTt7a0asKvX66nzfeG1erFYDM4K3H3YVigUzMvLy8a+z1Aul4Pnhueo7SfatsxB39zcqAG7Hh4e1Pm+djloov8tc9D39/dqwK7n52d1vi+foPEVj4+PjwOlUikc6x5NZay9LsbLXG3+6elpuD7muWtim8w9OTkxd3d34Xyibcgc9Hw+VwO24a2s1WqlzveVNGgZh8jsefI4LmjEq8Up+zHfjdReE+Ps/e5jom3IHDT868IY3pMejUbqvDQkTAnLhm1RQbvigna5+9359jaM1b43fknYR3mivGUKer1eh+8xDwaD4Ehsx4z3oKfTabA/r/eikwYtj+WUNyq+uKAxTtZwj9BRaz49PUWuxaBpm1IFjZBxkevi4iIIF3eI4f1obJ/NZmY8Hoc/6Dglb7VawTgEPxwON9bz4RO0wGkuTncRpAQVF7SELOtp+xk07ZpUQWsXwhA3wsGRGj/8/X4/8i2trBfIEAXicLdrkdns4N2xdrDaLw2foDEWX93niOfNoGmbvINOchEsTqPRCI7m2vpJICr3ApMEJxFJlHZUdlDuGhgnp9TuXHmc9JQb29z1tedMlDfvoPEHF1qkvrJeKEMYchotJLaoMW6AiFv2nZ2dBftlDXfu+fl5sF9+IcQFjcdYS+YzZvoM3kHjvmwtUF/4xaCtT0TpeQeNo44WqC+8vtbWJ6L0vILG614tzjRw5Vv7HkSUHoMmOiBeQQOuUGuB+mq32+r6RJSed9BJ//45jtxBRkT52Qg6ycf44k4o3NaJ+7S1WKPg5hOcaud5bzcR/aV+jC8/aJ9oP6kftM9/hUO0f9Cs+q9wJGrUzrCJdhsaRat2zPAhaCLabwya6GAcmT+Wo6ImlydDwAAAAABJRU5ErkJggg==" InformativeScreenshot="3d26b98b3a979ebaa6b3c287179e72ba.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Incidencias Granada - Autenticacion' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive" />
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Escribir en 'INPUT login_password'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="758,227" sap2010:WorkflowViewState.IdRef="NTypeInto_2" IsPassword="True" ScopeIdentifier="2fd0ceb5-9844-4d76-8fc8-85ad9b4753ed" Text="siprima" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="http://gii.gr.sscc.cma.junta-andalucia.es/index.php?redirect=%2Ffront%2Fticket.php&amp;error=3" DesignTimeRectangle="848, 445, 240, 30" DesignTimeScaleFactor="1" ElementType="InputBoxPassword" FriendlyName="'INPUT login_password'" FullSelectorArgument="&lt;webctrl id='login_password' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='login_password' tag='INPUT' type='password' class='' aaname='' /&gt;" Guid="01c57c71-69c3-46a7-a315-06bf110f4501" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAPQAAAAiCAYAAABoSPTMAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOvSURBVHhe7Z07biJBEIb3HnuIvcYeYWPfwSHBSpAREpKR+QKWgz2AJWOeIgBhBPIzwbbEQ0hIvfpHKlQ0NQwzw3qZ4Q8+eZuq7i5W/XU3GOFv339cOEJIPqDQhOSILaF//vrtrv/U3Wy+dOv1mhByosBRuApntcMboRGgyIRkCzirpd4IDdutDoSQ0wbu7gjN05mQbAJ3d4S2Egkh2YBCE5IjKDQhOeIoQi+XSzeZTFyn03H1et01m03X7/fdx8eHmU8I+TekFvrz8zMQ+O7uzmQ8Hpv9CCHHJ5XQ8/ncNRqNjbzdbteNRiM3GAyCk1oef3x8NPuTaLBZXl5eukql4p6fn125XA7+j61cQlIJDXFFWiw2HZvNZq7dbgcxyL1YLLbiacFmgkWOxS7c3NyYuUmBTJgDc1nxr6BWqwV1aLH/Zz3ktEks9Gq12pzCeL1s5by/v2+Ef3p6MnOSgBOqUChsCTydTl2pVAoE0LlpOAWhCYlDYqHx2llkfXt7M3PA/f19kDMcDs14XORktk5jiF4sFreupHKyAWwCOoYxqtXq1kkv4+p+2CiwYSB2dXUVtPE4cqJuCrL5WDF/HoC2xPbVJ2AD0/2PuaGR7JFYaH364t9WDsA738gJO8XjYkkbBuTQEvttyAEJRCIrX5/QyNdxkVlLpHPk1iDj+238lM0CbfTRzy2qPsyr60Nc55PzI3NC+xKEEXaSQwIREDEthCWcL7RuW2gp/fE0Up8fwxyH1ucTFSf5J5HQeP2M18QiNN7FhtQWrVYryOn1esEbZdZ4ccBiPUTosMUdRxj8PFRojCnXXusWAGReIHNJTBNXaD0H8OPkfEgkNH49JTLHJe2HTfQJaMWFrxJaRJbHw+rDWCIcxgmrTxNVH+IYD48hdsiYJN8kEtoS9VBeXl7MMQ8FixuLHIvZj+kFHZYHAY8lNPL93wtHbTgyBvpa9Wn21SfPT8vr10/Oj8wJDSALrrVaBlnMWgAsbH399dv7hJF8HY/Kl7bM4cdFQqnbr8eP75vPz5U2r9znTSaFBrK45RorV1k/D4tb4loesE8Y3ZZ+fj7wx0cbfaQWHQdyOxCQp+P6OUTVh5owp/S9vb0N8v05yPmQWaEJIbtQaEJyBIUmJEdQaEJyxJcL/fr6ao5JCElPIqEfHh5MWaPAp8aO8WkxQojNjtD8Gl9Cson5Nb78on1Cson5Rfv8UziEZA84a/4pHJEatlNsQk4bOApXtcxgS2hCSLah0ITkhgv3F9EaPESgtMCbAAAAAElFTkSuQmCC" InformativeScreenshot="40c9a6580f078c8fb7a425a86d80d20a.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Incidencias Granada - Autenticacion' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive" />
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NClick ClickType="Single" DisplayName="Clic 'Aceptar'" sap:VirtualizedContainerService.HintSize="758,166" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" ScopeIdentifier="2fd0ceb5-9844-4d76-8fc8-85ad9b4753ed" Version="V3">
+              <uix:NClick.MouseButton>
+                <InArgument x:TypeArguments="uix:NMouseButton">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Literal x:TypeArguments="uix:NMouseButton">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </Literal>
+                </InArgument>
+              </uix:NClick.MouseButton>
+              <uix:NClick.Target>
+                <uix:TargetAnchorable BrowserURL="http://gii.gr.sscc.cma.junta-andalucia.es/index.php?redirect=%2Ffront%2Fticket.php&amp;error=3" DesignTimeRectangle="848, 510, 240, 30" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Aceptar'" FullSelectorArgument="&lt;webctrl tag='INPUT' type='submit' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='submit' class='submit' aaname='Aceptar' check:text='Aceptar' /&gt;" Guid="ffa3539c-68ba-4c17-986a-ffd7abd41a95" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAPQAAAAiCAYAAABoSPTMAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKfSURBVHhe7d0vi1RRHMZx34NFEDYLgn+ioBgsNossGDSsGNSmbYMWDaJgsJjEaNBgEEGsNrPFYLD4Lq48I8/w7I8z4xqce++Zb/gwO/eee+4J+71nlg1z5PjpvQFAHwga6Mgi6J2zN4dfn64DmCk1vAz65PnbzUEA5kENL4M+dfFOcxCAeVDDBA10gqCBjhA00BGCBjpC0EBHCHoivr25Mjy7cWx4tHt04eury81xm/T5+YWF1jlME0FPhMJxzPL2wZnmuE3R/bUOgp4Xgp6Anx+uDa/vn1iGrNcXt3aGH+93m+M3gaDniaAnwB+3FbF+1qtian3sVuQ+vyr8utvnPD6nB8jHJ+eWYzxPPlxMa9O6dL3mWnUu1+YHgkzhz4dtQdAT4Mj8Mdsx+L3Vv7Mto86QknfaGnvSPN/fXV0ZdI3ZfP8M2jJ4/H8EPbLcER2dw8lQxbFqvK6r1zr4vK4ey6C9c+aDwsd8L68pj9XrHG0G7TX6WmwGQY+sRqFjGYbjyXh9rFq3+3p+j6nBOVa95vsM2nItOXdr3dgsgh7ZugjFgR0mlr/Npes8xvPWa9cFvWp+gp4Ogh5R3elaHMu/7NB19z3MGAe8KuiM1WO0Lq2PoKeDoEdUg8hzGYejcmQZY4bo+TIoveq95tKcuct6TOu6nDfH5Fo9l48R9PgIekSrdkurAWd4KSPzNZUfChl01XpQ2JeXl5axVgQ9HQQ9EoWjgPTL712w8u6awWY09ZzVGB2z5EMk/w9dHyr1PlpLPlB8X99L8xL0+Ah6y2TQrU8FmDeC3jIE3TeC3jIE3TeCBjpC0EBHCBroCEEDHSFooCMEDXSEoIGOHAhaX3R1997jYf/hUwAzo3YPfFmdvopSB1Q5gHlRu3++TnZv+A1LzgrF2+kCnAAAAABJRU5ErkJggg==" InformativeScreenshot="31046a5cb8eb72ccc7327db5e004eb43.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Incidencias Granada - Autenticacion' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive" />
+              </uix:NClick.Target>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NClick>
+            <ui:ForEachFileX DisplayName="Para cada archivo en la carpeta" Folder="[string.Format(&quot;{0}\OneDrive - Junta de Andalucia\UAI Developers\Proyecto\Altas&quot;, Environment.GetFolderPath(Environment.SpecialFolder.UserProfile))]" sap:VirtualizedContainerService.HintSize="758,10990" sap2010:WorkflowViewState.IdRef="ForEachFileX_1" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="False">
+              <ui:ForEachFileX.Body>
+                <ActivityAction x:TypeArguments="si:FileInfo, x:Int32">
+                  <ActivityAction.Argument1>
+                    <DelegateInArgument x:TypeArguments="si:FileInfo" Name="ArchivoAlta" />
+                  </ActivityAction.Argument1>
+                  <ActivityAction.Argument2>
+                    <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
+                  </ActivityAction.Argument2>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Sequence DisplayName="Hacer" sap:VirtualizedContainerService.HintSize="724,10727" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:ReadPDFText DisplayName="Leer texto en PDF" FileName="[ArchivoAlta.FullName]" sap:VirtualizedContainerService.HintSize="682,91" sap2010:WorkflowViewState.IdRef="ReadPDFText_1" PreserveFormatting="True" Range="All" Text="[texto]">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:ReadPDFText>
+                    <ui:WriteTextFile File="{x:Null}" DisplayName="Escribir archivo de texto" FileName="[string.Format(&quot;{0}\OneDrive - Junta de Andalucia\UAI Developers\Proyecto\salidapdf.txt&quot;, Environment.GetFolderPath(Environment.SpecialFolder.UserProfile))]" sap:VirtualizedContainerService.HintSize="682,142" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[texto]" />
+                    <ui:Matches BuilderPattern="(?&lt;=NIF\s+)+\b([XYZ\d]\d{7}[A-HJ-NP-TV-Z])\b" DisplayName="Coincidencias" sap:VirtualizedContainerService.HintSize="682,69" sap2010:WorkflowViewState.IdRef="Matches_1" Input="[texto]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Avanzado&quot;,&quot;OperationValue&quot;:&quot;(?&lt;=NIF\\s+)+\\b([XYZ\\d]\\d{7}[A-HJ-NP-TV-Z])\\b&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactamente&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="(?&lt;=NIF\s+)+\b([XYZ\d]\d{7}[A-HJ-NP-TV-Z])\b" RegexOption="IgnoreCase, Compiled" Result="[NIF]">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:Matches>
+                    <ui:Matches BuilderPattern="(?&lt;=NOMBRE\s+)+(\w+)" DisplayName="Coincidencias" sap:VirtualizedContainerService.HintSize="682,69" sap2010:WorkflowViewState.IdRef="Matches_2" Input="[texto]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Avanzado&quot;,&quot;OperationValue&quot;:&quot;(?&lt;=NOMBRE\\s+)+(\\w+)&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactamente&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="(?&lt;=NOMBRE\s+)+(\w+)" RegexOption="IgnoreCase, Compiled" Result="[NOMBRE]">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:Matches>
+                    <ui:Matches BuilderPattern="(?&lt;=APELLIDOS\s+)+\S.*\S" DisplayName="Coincidencias" sap:VirtualizedContainerService.HintSize="682,69" sap2010:WorkflowViewState.IdRef="Matches_3" Input="[texto]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Avanzado&quot;,&quot;OperationValue&quot;:&quot;(?&lt;=APELLIDOS\\s+)+\\S.*\\S&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactamente&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="(?&lt;=APELLIDOS\s+)+\S.*\S" RegexOption="IgnoreCase, Compiled" Result="[APELLIDOS]">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:Matches>
+                    <ui:Matches BuilderPattern="(?&lt;=ELECTRÓNICO\s+)+(\w.*)" DisplayName="Coincidencias" sap:VirtualizedContainerService.HintSize="682,69" sap2010:WorkflowViewState.IdRef="Matches_4" Input="[texto]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Avanzado&quot;,&quot;OperationValue&quot;:&quot;(?&lt;=ELECTRÓNICO\\s+)+(\\w.*)&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactamente&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="(?&lt;=ELECTRÓNICO\s+)+(\w.*)" RegexOption="IgnoreCase, Compiled" Result="[CORREO]">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:Matches>
+                    <uix:NGoToUrl DisplayName="Ir a URL" sap:VirtualizedContainerService.HintSize="682,91" sap2010:WorkflowViewState.IdRef="NGoToUrl_1" Url="http://gii.gr.sscc.cma.junta-andalucia.es/front/user.php" Version="V3" />
+                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Escribir en 'INPUT'" sap:VirtualizedContainerService.HintSize="682,227" sap2010:WorkflowViewState.IdRef="NTypeInto_3" ScopeIdentifier="2fd0ceb5-9844-4d76-8fc8-85ad9b4753ed" Text="[System.Text.RegularExpressions.Regex.Match(CORREO(0).tostring,&quot;^([^@]+)&quot;).Value]" Version="V3">
+                      <uix:NTypeInto.EmptyFieldMode>
+                        <InArgument x:TypeArguments="uix:NEmptyFieldMode">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Literal x:TypeArguments="uix:NEmptyFieldMode" Value="SingleLine">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </Literal>
+                        </InArgument>
+                      </uix:NTypeInto.EmptyFieldMode>
+                      <uix:NTypeInto.Target>
+                        <uix:TargetAnchorable BrowserURL="http://gii.gr.sscc.cma.junta-andalucia.es/front/user.php" DesignTimeRectangle="940, 293, 113, 19" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT'" FullSelectorArgument="&lt;webctrl parentid='SearchSpanUser0' tableRow='1' tag='TABLE' /&gt;&lt;webctrl name='criteria[0][value]' tableRow='1' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='SearchSpanUser0' tag='TABLE' /&gt;&lt;webctrl name='criteria[0][value]' type='text' tag='INPUT' class='' aaname='' /&gt;" Guid="22ec32b5-7cdb-463d-b2d7-a64f014ed20b" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHUAAAAXCAYAAAA1OADtAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACgSURBVGhD7dnBCcAgEETR9N+eWIFYhCBsmENEwRSwwx/4p5DTw9M+wewGquEO1N571FqjlEJJkpfc9i1UfWitxRgj5pyUJHnJbYddqBIHNGdyk9+3haqnfPuBciS/b6CaBKphoBoGqmGgGgaqYaAaBqphoBoGqmGgGgaqYVdUrjR5+73ScE/Nmbx+76maPkhcT5lyJK8dVDtQmcdAtVvEC7FdHnGm2/GVAAAAAElFTkSuQmCC" InformativeScreenshot="2ea6de64d5c8d0f87f2f779530981b7f.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Incidencias Granada - Usuarios' /&gt;" SearchSteps="Selector, Image" Version="V1" Visibility="Interactive" />
+                      </uix:NTypeInto.Target>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </uix:NTypeInto>
+                    <uix:NClick ClickType="Single" DisplayName="Clic 'Buscar'" sap:VirtualizedContainerService.HintSize="682,166" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="2fd0ceb5-9844-4d76-8fc8-85ad9b4753ed" Version="V3">
+                      <uix:NClick.Target>
+                        <uix:TargetAnchorable BrowserURL="http://gii.gr.sscc.cma.junta-andalucia.es/front/user.php" DesignTimeRectangle="1301, 342, 51, 24" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Buscar'" FullSelectorArgument="&lt;webctrl parentid='searchcriterias' tableCol='6' tableRow='1' tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='searchcriterias' tag='TABLE' /&gt;&lt;webctrl type='submit' tag='INPUT' class='submit' aaname='Buscar' check:text='Buscar' /&gt;" Guid="9017dd44-3158-4f99-89f5-df98472e78f0" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADcAAAAcCAYAAADFsCezAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFTSURBVFhH7ZOtbgJBFIXRVbgqTA2CJ+gDVFLXhBBcZWUdrqqytrjKpgYFigSDqeEV6sHWYHqbQ/KRm2XYbvkLs8xJTpbZuX/fzFKxEus84H4+O6UxSnCxGSW42IwSXGxGf8KNnhv20r5Y89fHTTD+FIwKwb09XNr3+C733SkZbQU37V3b633VZoPm8gb9Tfo9rfXUOnTj5Mo+R73Ukz3NoPeLScv63St7f6wt7XO80b/haMC7PDhiZf32tYBWXihOdahHfeI2QWG083+uCJz2GZy6ist+Ed7Z2wsdQihPRlt/lmqoZx6c1uxjBgvVlf2BKNfXPwocn1QROOxvQjGb4nxtrY8Op8Y09MPQnKEBUg3l+UGzEPSZD29XOdQ7KJyKZ81QPkbDDp/qKzjtAUEeoDKw5JLD4ckC5RD2DhejUYKLzSjBxWaU4GIzOg+4MqrEcGa/sgZEyOjeusoAAAAASUVORK5CYII=" InformativeScreenshot="bcf5e1b9bc4c8f33ef33cb715eab4452.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Incidencias Granada - Usuarios' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive" />
+                      </uix:NClick.Target>
+                    </uix:NClick>
+                    <uix:NGetText DisplayName="Obtener texto 'Elemento no encontrado'" sap:VirtualizedContainerService.HintSize="682,166" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="2fd0ceb5-9844-4d76-8fc8-85ad9b4753ed" TextString="[Existe_Usuario]" Version="V3">
+                      <uix:NGetText.Target>
+                        <uix:TargetAnchorable BrowserURL="http://gii.gr.sscc.cma.junta-andalucia.es/front/user.php?is_deleted=0&amp;criteria%5B0%5D%5Bfield%5D=view&amp;criteria%5B0%5D%5Bsearchtype%5D=contains&amp;criteria%5B0%5D%5Bvalue%5D=dfsd&amp;search=Buscar&amp;itemtype=User&amp;start=0&amp;_glpi_csrf_token=86967a8797be745ca6dd983ad3d486ae" DesignTimeRectangle="16, 425, 1904, 15" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Elemento no encontrado'" FullSelectorArgument="&lt;webctrl aaname='Elemento no encontrado' parentid='page' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='page' tag='DIV' type='' class='center b' /&gt;" Guid="3f972744-f5e1-43ad-a6e9-5b205355b5f4" InformativeScreenshot="6f89deb1b202177dbb8b4b1b4d5728d5.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Incidencias Granada - Usuarios' /&gt;" SearchSteps="FuzzySelector" Version="V1" Visibility="Interactive" />
+                      </uix:NGetText.Target>
+                    </uix:NGetText>
+                    <If Condition="[Existe_Usuario=&quot;Elemento no encontrado&quot;]" DisplayName="Si" sap:VirtualizedContainerService.HintSize="682,8947" sap2010:WorkflowViewState.IdRef="If_1">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <If.Then>
+                        <Sequence sap:VirtualizedContainerService.HintSize="600,8684" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <uix:NClick ClickType="Single" DisplayName="Clic 'Añadir usuario...'" sap:VirtualizedContainerService.HintSize="558,166" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="2fd0ceb5-9844-4d76-8fc8-85ad9b4753ed" Version="V3">
+                            <uix:NClick.Target>
+                              <uix:TargetAnchorable BrowserURL="http://gii.gr.sscc.cma.junta-andalucia.es/front/user.php?is_deleted=0&amp;criteria%5B0%5D%5Bfield%5D=view&amp;criteria%5B0%5D%5Bsearchtype%5D=contains&amp;criteria%5B0%5D%5Bvalue%5D=alta1&amp;search=Buscar&amp;itemtype=User&amp;start=0&amp;_glpi_csrf_token=d7c5ac103a75966e3506da22657174cc" DesignTimeRectangle="822, 229, 105, 24" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Añadir usuario...'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='A' class='vsubmit' aaname='Añadir usuario...' check:innerText='Añadir usuario...' /&gt;" Guid="aa704b69-b70f-4af8-95dc-72ffecf1a314" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAG0AAAAcCAYAAABrhjEyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIWSURBVGhD7Zc7jgIxDIa35hwcgZ6emgpxCk5BR480J2BugES/NaegptitNptk4qydh5msGIQlF79Gk9hx7M/JwMf3192oZEmhCVSE9vO5Vb2xFJpAKTSBUmgCpdAESqEJ1POhnRbmsJmZ/rQ1t+PcdMd12U71b7VDOy9NZ6EcNnNzOefzDhQAq9nwWpnerb9fDe+oCXLbN9QL9tsMbYDhoM0mOkUJNFWmRmhrc9nZgu4WpvfPpbllc0tz2Q9QD5uFuSL/axxP5uLptdrbtf2zcNKCXWdtvD2Jj+ahmdKux3EK42P9ol1pP9lJC00Y9IxGb4OGksuvvwANxkqFgCJDETwY8AsQQ9IctAwWqBQTfFFTOd+hgULMEX4AYfCjOZL9EN9prvomaARUmmha/Mo1R06bm8vWYRLNbBONKL6Pm0Jn/aiN96/WwAr7ZuvQxok+jWqAlgZ89E6LH7+F/h3NZYlPBe3vPQr2yvqF/QRQfONS3+pt9DJoacJIQ3IcNGYuJB4hTQktCkAEW84vWaMFWh7/xdDIXQ7jpOD8ScPfEHrqgl/DN60KrRgTisY0A+dHYgLskdDYmEm9GvIcCS0EzzoEF5yHFgF72T/dJVtvP+LXYxUaagjnY9eKvm6e7AHFeOCHv8PdbrCr7oeAcUK5kfHJoaneSQpNoBSaQCk0gVJoAqXQBEqhCZRCE6giNJUcKTRxuptfIN6cB+wQzRUAAAAASUVORK5CYII=" InformativeScreenshot="9c7d5a70545bbbc48af40cb2a8e1b5c6.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Incidencias Granada - Usuarios' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive" />
+                            </uix:NClick.Target>
+                          </uix:NClick>
+                          <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Escribir en 'Usuario'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="558,227" sap2010:WorkflowViewState.IdRef="NTypeInto_4" ScopeIdentifier="2fd0ceb5-9844-4d76-8fc8-85ad9b4753ed" Text="[System.Text.RegularExpressions.Regex.Match(CORREO(0).tostring,&quot;^([^@]+)&quot;).Value]" Version="V3">
+                            <uix:NTypeInto.Target>
+                              <uix:TargetAnchorable BrowserURL="http://gii.gr.sscc.cma.junta-andalucia.es/front/user.form.php" DesignTimeRectangle="692, 367, 147, 21" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT'" FullSelectorArgument="&lt;webctrl id='mainformtable' tag='TABLE' /&gt;&lt;webctrl tableRow='2' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='mainformtable' tag='TABLE' /&gt;&lt;webctrl type='' tag='INPUT' class='' aaname='' /&gt;" Guid="a731b7fd-debe-4838-bc6e-8dfb8f5141ed" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAJcAAAAZCAYAAAA8JbzRAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABwSURBVGhD7dIhDoAwAARBXt3vl2BIIShg3Uxy6uxuEyLiInOJa4xh9mmrM677AW+sHYmLX4mLjLjIiIuMuMiIi4y4yIiLjLjIiIuMuMiIi4y4yIiLjLjIiIuMuMiIi8xjXIfjMPuy1SUu+JO4iMy5AyAztbWee2FsAAAAAElFTkSuQmCC" InformativeScreenshot="abdd449afe9d5828f9b8adb18a4ca997.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Incidencias Granada - Usuarios' /&gt;" SearchSteps="Selector, Image" Version="V1" Visibility="Interactive">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                    <uix:Target DesignTimeRectangle="493, 362, 194, 31" ElementType="Text" FriendlyName="'Usuario'" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAMYAAAAjCAYAAADPEnVsAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGJSURBVHhe7dfNbYNAFEXh1EIfFAElUAENUACt0ARbFnRAD5bYsCW6I4a8jJ/AEsiykvNJo4z59WIOJl/rZp5nBoOxDcJgMJyxhwHgB2EADsIAHIQBOAgDcBAG4CAMwEEYgIMwAAdhAA7CABwfHcbj8Vjrug5/gXc6DMNbmJpXVbVO07RtAf4ewgAcl8No23bNsiwMHbssS9jXNE2YyzAM+z6dX5bl0zmia+m8PM/DGMfx1/11XW3XebqG/V7AnS6FYRe89H0f9h+FkVIMXdftc3ucvb+GYtC15OiawFWXwohP8PTpfRaGQoi/GBo2jDgXe//0mvZ7AHc7DSNdfHaxRporDkWiY4/C0NyGlP5iEAY+wWEYki5WzeMi1zy+2uiztuuzFqsWrV38Now4j+e8EoYGr1J4l9Mw4uKNrz32aa8A4j/DGlrYkeZ2exqDtuvcoiheCkPs/dLXN+BOp2EA/xFhAA7CAByEATgIA3AQBuAgDMBBGICDMAAHYQAOwgAchAE4CAN4sq7fhUvExYl20rwAAAAASUVORK5CYII=" SearchSteps="Selector, Image">
+                                      <uix:Target.FullSelectorArgument>
+                                        <InArgument x:TypeArguments="x:String">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <Literal x:TypeArguments="x:String">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>&lt;webctrl id='mainformtable' tag='TABLE' /&gt;&lt;webctrl tableRow='2' tag='TD' /&gt;</Literal>
+                                        </InArgument>
+                                      </uix:Target.FullSelectorArgument>
+                                      <uix:Target.FuzzySelectorArgument>
+                                        <InArgument x:TypeArguments="x:String">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <Literal x:TypeArguments="x:String">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>&lt;webctrl id='mainformtable' tag='TABLE' /&gt;&lt;webctrl type='' tag='TD' class='' aaname='Usuario' check:innerText='Usuario' /&gt;</Literal>
+                                        </InArgument>
+                                      </uix:Target.FuzzySelectorArgument>
+                                    </uix:Target>
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </uix:TargetAnchorable>
+                            </uix:NTypeInto.Target>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </uix:NTypeInto>
+                          <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Escribir en 'Apellido'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="558,227" sap2010:WorkflowViewState.IdRef="NTypeInto_14" ScopeIdentifier="2fd0ceb5-9844-4d76-8fc8-85ad9b4753ed" Text="[APELLIDOS(0).tostring]" Version="V3">
+                            <uix:NTypeInto.Target>
+                              <uix:TargetAnchorable BrowserURL="http://gii.gr.sscc.cma.junta-andalucia.es/front/user.form.php" DesignTimeRectangle="692, 398, 155, 19" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT textfield_realnam…'" FullSelectorArgument="&lt;webctrl id='mainformtable' tag='TABLE' /&gt;&lt;webctrl id='textfield_realname262256155' tableRow='3' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='mainformtable' tag='TABLE' /&gt;&lt;webctrl id='textfield_realname262256155' type='text' tag='INPUT' class='autocompletion-text-field ui-autocomplete-input' aaname='' /&gt;" Guid="69a582cb-7dee-4aae-a19e-a4ab874686b8" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAJ8AAAAXCAYAAAAV+J1VAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVGhD7doxCsAgEETR3P964gnEQwjChikiBmKnmeYPvCqk+1jtFYyZRnzMtld8tdbIOUdKCdhKXamveSM+fSilRGsteu/AVupKfc0BjvhUJuHhJPWlzp6N+PQ0fv0A7KTOnhEffkV8sCE+2BAfbIgPNsQHG+KDDfHBhvhgQ3ywIT7YEB9sPuPjqgWnLa9auOfDSepqec+n6YPK1NMI7KSu5vC0V3yM/TniY6ZF3NCT48FTylFGAAAAAElFTkSuQmCC" InformativeScreenshot="9baf2d73ea19c49a0cb0ab96234b7f3d.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Incidencias Granada - Usuarios' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                    <uix:Target DesignTimeRectangle="493, 393, 194, 29" ElementType="Text" FriendlyName="'Apellido'" FullSelectorArgument="&lt;webctrl id='mainformtable' tag='TABLE' /&gt;&lt;webctrl tableRow='3' tag='TD' /&gt;" FuzzySelectorArgument="&lt;webctrl id='mainformtable' tag='TABLE' /&gt;&lt;webctrl type='' tag='TD' class='' aaname='Apellido' check:innerText='Apellido' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAMYAAAAhCAYAAACC2tRnAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAG3SURBVHhe7dfNjYJQFIbhqYU+KEIqMFZAAxRAATRBJa7Z2gNLtnfyEc/k5Hr4iYNOxrxPYkCuoIvzin4lAA8IAwgQBhAgDCBAGECAMIAAYQABwgAChAEECAMIEAYQIAwg8PYwxnFMdV3P26X93PV6ndemabofAV5rVxi32y2VZZnatr0fed7eGDzCwLvtCqPv+9R13a4h3kIY+A82w9AwNk0z3zV0x9CQGgWjga2qKhVFMW9tyHWe1nRcD71WlsLw+2J3KTtfaxaGPkN0HDjKZhgaUIWh4dNA+p9TGnYfg9ZsXVuLwce1FEO+r+tahP6OoWucTqd5K3oP/5mAI2yG4QdcA3u5XBaH0gbYhty+1e2h9TyAaN/H6K8bxanX6jPpPOAoq2Fo2Oxnkn9YKFth6HnOB7C0Txj4a6th5EMofmh9GHqu4bVodNyGWYZhmM9diiHfz+9Mdi0d46cUXm01DA1c/q2v4bT/CxpKfyfxA2qh2Jr9F8kDiPZF72vnns/nnzDyNX8cOMrmf4w1fFvjUxEGEPhVGMCnIgwgQBhAgDCAAGEAAcIAAoQBBAgDCBAGECAM4EFK3+PXslbnOAfuAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NTypeInto.Target>
+                          </uix:NTypeInto>
+                          <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Escribir en 'Nombre'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="558,227" sap2010:WorkflowViewState.IdRef="NTypeInto_7" ScopeIdentifier="2fd0ceb5-9844-4d76-8fc8-85ad9b4753ed" Text="[NOMBRE(0).tostring]" Version="V3">
+                            <uix:NTypeInto.Target>
+                              <uix:TargetAnchorable BrowserURL="http://gii.gr.sscc.cma.junta-andalucia.es/front/user.form.php" DesignTimeRectangle="692, 427, 155, 19" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT textfield_firstna…'" FullSelectorArgument="&lt;webctrl id='mainformtable' tag='TABLE' /&gt;&lt;webctrl id='textfield_firstname1627706034' tableRow='4' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='mainformtable' tag='TABLE' /&gt;&lt;webctrl id='textfield_firstname1627706034' type='text' tag='INPUT' class='autocompletion-text-field ui-autocomplete-input' aaname='' /&gt;" Guid="0350984d-d2c6-4b32-af84-197d048a8754" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAJ8AAAAXCAYAAAAV+J1VAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVGhD7doxCsAgEETR3P964gnEQwjChikiBmKnmeYPvCqk+1jtFYyZRnzMtld8tdbIOUdKCdhKXamveSM+fSilRGsteu/AVupKfc0BjvhUJuHhJPWlzp6N+PQ0fv0A7KTOnhEffkV8sCE+2BAfbIgPNsQHG+KDDfHBhvhgQ3ywIT7YEB9sPuPjqgWnLa9auOfDSepqec+n6YPK1NMI7KSu5vC0V3yM/TniY6ZF3NCT48FTylFGAAAAAElFTkSuQmCC" InformativeScreenshot="14e9c3df61650be0f0195f2aadacb9cc.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Incidencias Granada - Usuarios' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                    <uix:Target DesignTimeRectangle="493, 422, 194, 29" ElementType="Text" FriendlyName="'Nombre'" FullSelectorArgument="&lt;webctrl id='mainformtable' tag='TABLE' /&gt;&lt;webctrl tableRow='4' tag='TD' /&gt;" FuzzySelectorArgument="&lt;webctrl id='mainformtable' tag='TABLE' /&gt;&lt;webctrl type='' tag='TD' class='' aaname='Nombre' check:innerText='Nombre' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAMYAAAAhCAYAAACC2tRnAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGXSURBVHhe7dfNbYNQEEXh1EIfFAEluAIacAEUQBM0wdZrtrgGL9m+6KIMGj2PHEiIgpLzSSj8s5ljyFsC8IQwgABhAAHCAAKEAQQIAwgQBhAgDCBAGECAMIAAYQABwgACpwij7/vUtu3HFvD7XobxeDxSXdfLonXbd7lc0jRNy/YRCANn82kYiuB6vS7D6/cRBv6yTWHcbrfUNM2ynYcxz/NyrCiKZdG5YudVVbUeG4ZhPbcsy/UeCkPnaZ+O+TeUjuka7bP758+0aIGjbApDA6zh05KHoV96+7X3x7SuYbZQ9NfHoGtsoG34NfDi76ljPhTx1+oavdHsvsARNoehdQ3v/X5f90VDaUPrrxV769jw6xw//LYu/tz8mPb5t4UtFiBwhM1hiIa067pThEEI+Em7wtC2PmvyTyIbXH/+V8Owwdc+ycMQbft7jeO4Pgc4wq4wRIPqw7BBzj9p9obhP4t8CFEY+TPz/0GA73oZBvBfEQYQIAwgQBhAgDCAAGEAAcIAAoQBBAgDCBAGECAMIEAYwJOU3gGh5rn3PS8DzwAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NTypeInto.Target>
+                          </uix:NTypeInto>
+                          <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Escribir en 'Contraseña'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="558,227" sap2010:WorkflowViewState.IdRef="NTypeInto_9" ScopeIdentifier="2fd0ceb5-9844-4d76-8fc8-85ad9b4753ed" Text="[left(NIF(0).tostring,8)]" Version="V3">
+                            <uix:NTypeInto.Target>
+                              <uix:TargetAnchorable BrowserURL="http://gii.gr.sscc.cma.junta-andalucia.es/front/user.form.php" DesignTimeRectangle="692, 456, 155, 19" DesignTimeScaleFactor="1" ElementType="InputBoxPassword" FriendlyName="'INPUT password'" FullSelectorArgument="&lt;webctrl id='mainformtable' tag='TABLE' /&gt;&lt;webctrl id='password' tableRow='5' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='mainformtable' tag='TABLE' /&gt;&lt;webctrl id='password' type='password' tag='INPUT' class='' aaname='' /&gt;" Guid="274757ab-7885-4ea8-a496-b65be93b3a53" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAJ8AAAAXCAYAAAAV+J1VAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVGhD7doxCsAgEETR3P964gnEQwjChikiBmKnmeYPvCqk+1jtFYyZRnzMtld8tdbIOUdKCdhKXamveSM+fSilRGsteu/AVupKfc0BjvhUJuHhJPWlzp6N+PQ0fv0A7KTOnhEffkV8sCE+2BAfbIgPNsQHG+KDDfHBhvhgQ3ywIT7YEB9sPuPjqgWnLa9auOfDSepqec+n6YPK1NMI7KSu5vC0V3yM/TniY6ZF3NCT48FTylFGAAAAAElFTkSuQmCC" InformativeScreenshot="acaff963f218e9d24056837464e6df95.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Incidencias Granada - Usuarios' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                    <uix:Target DesignTimeRectangle="493, 451, 194, 29" ElementType="Text" FriendlyName="'Contraseña'" FullSelectorArgument="&lt;webctrl id='mainformtable' tag='TABLE' /&gt;&lt;webctrl tableRow='5' tag='TD' /&gt;" FuzzySelectorArgument="&lt;webctrl id='mainformtable' tag='TABLE' /&gt;&lt;webctrl type='' tag='TD' class='' aaname='Contraseña' check:innerText='Contraseña' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAMYAAAAhCAYAAACC2tRnAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIHSURBVHhe7dfNjeJAFEXhiYU8CAIiaBEBCRAAAZAEe3JgzZYcWLL16KC+qKh+0E2jQRr5fJIF9eMqW3rXhj+DpC8MhlQwGFLBYEgFgyEVDIZUMBhSwWBIBYMhFQyGVDAYUsFgSIVRBON0Og3z+XxYLpeX7+v1+vIp3fOjYGy322EymVwPCux8Pn+OPo/CZM13Ya/9fn+9j3furf/Tt8GgiHjatk/YFNpvvTsY0rMeBoMwLBaL4Xg8fvZ8RUCqNwnFv1qthul0ejPWzuegzfrswxz6Epx+Hlgj8zI3+N735x64lowllP1a/QNA4/UwGCnYe8XC+Gw2uwaHgktB8pkwpABT3Iy1bwzOJ0AZ77XX0e6B3W53Wb/v5zvrcQ4Fn/0e3VO/hsbrpWBQeG0htfPpb4s/hZrv7Vi1Twq6f5qzBu2ELlgzc3OwB+ewNnuANudmr6yXo70fjddLP6X+VTDyhsmcKjj08ZZJYPo1o78H2gkGfffeeBq3l/58PyqsvlBpPxuMzOcz17DZbK770U7R99dJ3+FwuJkD2m0w2n25rly/xu3bYICiu/dzg6JNPwWXnzd98dNOoVOQ+VNOX1+gaNclfBlv+zn6PdLP+qzLOfeCgfacj4+Pm3vTeP0oGNLYGAypYDCkgsGQCgZDKhgMqWAwpILBkAoGQyoYDKlgMKSCwZC+GIa/ea5MiWVwjiIAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NTypeInto.Target>
+                          </uix:NTypeInto>
+                          <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Escribir en 'Confirmación de'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="558,227" sap2010:WorkflowViewState.IdRef="NTypeInto_10" ScopeIdentifier="2fd0ceb5-9844-4d76-8fc8-85ad9b4753ed" Text="[left(NIF(0).tostring,8)]" Version="V3">
+                            <uix:NTypeInto.Target>
+                              <uix:TargetAnchorable BrowserURL="http://gii.gr.sscc.cma.junta-andalucia.es/front/user.form.php" DesignTimeRectangle="692, 485, 155, 19" DesignTimeScaleFactor="1" ElementType="InputBoxPassword" FriendlyName="'INPUT'" FullSelectorArgument="&lt;webctrl id='mainformtable' tag='TABLE' /&gt;&lt;webctrl tableRow='6' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='mainformtable' tag='TABLE' /&gt;&lt;webctrl type='password' tag='INPUT' class='' aaname='' /&gt;" Guid="405e6c4f-ec65-4b82-8c9c-fac758e221c1" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAJ8AAAAXCAYAAAAV+J1VAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVGhD7doxCsAgEETR3P964gnEQwjChikiBmKnmeYPvCqk+1jtFYyZRnzMtld8tdbIOUdKCdhKXamveSM+fSilRGsteu/AVupKfc0BjvhUJuHhJPWlzp6N+PQ0fv0A7KTOnhEffkV8sCE+2BAfbIgPNsQHG+KDDfHBhvhgQ3ywIT7YEB9sPuPjqgWnLa9auOfDSepqec+n6YPK1NMI7KSu5vC0V3yM/TniY6ZF3NCT48FTylFGAAAAAElFTkSuQmCC" InformativeScreenshot="4a1674784f3dc26f8acc23594a54a1cd.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Incidencias Granada - Usuarios' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                    <uix:Target DesignTimeRectangle="493, 480, 194, 29" ElementType="Text" FriendlyName="'Confirmación de'" FullSelectorArgument="&lt;webctrl id='mainformtable' tag='TABLE' /&gt;&lt;webctrl tableRow='6' tag='TD' /&gt;" FuzzySelectorArgument="&lt;webctrl id='mainformtable' tag='TABLE' /&gt;&lt;webctrl type='' tag='TD' class='' aaname='Confirmación de contraseña' check:innerText='Confirmación de contraseña' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAMYAAAAhCAYAAACC2tRnAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAANtSURBVHhe7Zc9TutQEIXfWtgHi4AVIFaQDbAAFkCfOptAdClS0VLTUtL66bPeQecNE8chEhg4n3Rl+87PnZl7x07+DCGEd6QxQmhIY4TQkMYIoSGNEUJDGiOEhjRGCA1pjBAa0hghNKQxQmhIY4TQkMYIoeFLGuPl5WW4vLwczs7Ohs1mM9ze3g7b7faf9PMgjtVqNV4dYiG+On8sr6+vo/+vyO0reXp6Gs7Pz8d9pYZcqcV3YlZjcHg5xBps9imJqhmWyL5m+QhLaAzyuL6+Hg/rZ3F3dzeuxx5zXr7ji+FgY3CI69uTuVOSpWD4+On81sb4CUw2xpyisundl4TDf3NzM35SXeb6yPRm0eFxO8ZutxtjuLi4eLO7v78f/bkPcN8Mbz4dUslYh/yYU9PjR/H6y4B5YnD7qcOOb+m5bo1h6uXQ1Qnct9t73ZCxDuu5vnLCDrl+zj48PPwXV81dPhmHcpmqFT61JkMxLpHJxlCSKlIFOQdWm0Zx2AjgqsRVRBUIWd1Ul3nBVEzJudaD4r4Edt7U6DEA3+v1enh+fh7XQrdbR3HggzU7WUWHDhmDe9l5rMg4yIrPYc7rij3jkO9OVusA+PHDX0GOv7oG+ryUYF8ujLm1ch9L46TGIGmSE65fk+ZZxTpGVje2FhpdbEAbqTeSGsg3zsE3+lyRoSO/vi7D61B1Hc9F8fBcY9OQrsOccnLcN3juXLua1vqB2wl0PS73y7P7nsrlUK3w4zbud0mc9FOqbqAXhfluo3Q/V1ZjQI9N8UJjA1x173boLqUxJJsCHeXhuG+ouXc19TyE2wGyfV9+wRwHmfmpXKZqhb5/qWrMS+KkP99TBa1J86xCHiOrG4veVGPItsaGTHrYHvtTam5jeDzVJ/Me++Pj41t8To0dewa+Zc/g3n173XhGVusHHiMg8/yQMXjmqnjxp/WZ73Kpvnj2xqjxe8xL4mBjAMH758+LSrKa90Kh022U7ufK6sZ6cQFdbAAd/VHkYPnh0kYoVuzwzZxvouz9ZcD83MbwdfBFDMqtxlBfOI7X1fXIVfO1hvtqyrz78ZoJ93t1dfUm93n9NIV9uUzVqquNx7wkZjVGCL+NNEYIDWmMEBrSGCE0pDFCaEhjhNCQxgihIY0RQkMaI4SGNEYIDWmMEBrSGCG8Yxj+Aks8f+5x52SNAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NTypeInto.Target>
+                          </uix:NTypeInto>
+                          <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Escribir en 'Vigente desde'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="558,227" sap2010:WorkflowViewState.IdRef="NTypeInto_13" ScopeIdentifier="2fd0ceb5-9844-4d76-8fc8-85ad9b4753ed" Text="[System.DateTime.Now.ToString(&quot;yyyy-MM-dd hh:mm:ss&quot;)]" Version="V3">
+                            <uix:NTypeInto.Target>
+                              <uix:TargetAnchorable BrowserURL="http://gii.gr.sscc.cma.junta-andalucia.es/front/user.form.php" DesignTimeRectangle="692, 546, 155, 19" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT showdate210823903'" FullSelectorArgument="&lt;webctrl id='mainformtable' tag='TABLE' /&gt;&lt;webctrl id='showdate210823903' tableRow='8' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='mainformtable' tag='TABLE' /&gt;&lt;webctrl id='showdate210823903' type='text' tag='INPUT' class='hasDatepicker' aaname='' /&gt;" Guid="0e3d2f57-5ecb-4f90-8893-8ee2d10d9d90" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAJ8AAAAXCAYAAAAV+J1VAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVGhD7doxCsAgEETR3P964gnEQwjChikiBmKnmeYPvCqk+1jtFYyZRnzMtld8tdbIOUdKCdhKXamveSM+fSilRGsteu/AVupKfc0BjvhUJuHhJPWlzp6N+PQ0fv0A7KTOnhEffkV8sCE+2BAfbIgPNsQHG+KDDfHBhvhgQ3ywIT7YEB9sPuPjqgWnLa9auOfDSepqec+n6YPK1NMI7KSu5vC0V3yM/TniY6ZF3NCT48FTylFGAAAAAElFTkSuQmCC" InformativeScreenshot="c215c14eaa932567fab320b102549de7.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Incidencias Granada - Usuarios' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                    <uix:Target DesignTimeRectangle="493, 541, 194, 29" ElementType="Text" FriendlyName="'Vigente desde'" FullSelectorArgument="&lt;webctrl id='mainformtable' tag='TABLE' /&gt;&lt;webctrl tableRow='8' tag='TD' /&gt;" FuzzySelectorArgument="&lt;webctrl id='mainformtable' tag='TABLE' /&gt;&lt;webctrl type='' tag='TD' class='' aaname='Vigente desde' check:innerText='Vigente desde' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAMYAAAAhCAYAAACC2tRnAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJcSURBVHhe7ZfNjeJAEEY3FvIgCIgAEQEJEAABkAR3zlw5z3Vy4MjVq4coVNOUzfyAdrx6T2qBu7qrivH3tT1/OhG5Q2OIFGgMkQKNIVKgMUQKNIZIgcYQKdAYIgUaQ6RAY4gUaAyRAo0hUvAjY+x2u8v47dDjZrO5Xv2MZ+aS38ugMRBAK/zT6dQtl8vu/f39OvManllHY8hXGTTG8XjsVqtVdz6frzP13CvQGPIvGTRGJc78FOEzvgOxyWRyG5goyLEQVuRfr9e3WOTL6+fz+WUtZsSU7doKasc6RtSEqhfI89n8Q7lyLPqU8fPwfwxEEAJsjZKNwWeIKQQcxiDWCpAY+RBT5CAv+Zlva0HuhRoYqnqiMDebzT70GfX7emFkMxwOh0sPQ7mYi36BHDm3jJeHxuDmI0AE0954RBJCDYFBawxi+cRlsK8VP9fs47ONRc42T9TIVH3GdV8v1JlOp3en/lAuYm2ubC4ZLw+NwU2OkxlBZCEiEgbkWGWMWJf5jjFy/T5Y0yfmvl4C6mIOTELtoVzENML/yUNjAGLYbrc30QbMh8iyYEJcIWJi+SRGcG9vb3fi57rPGED+LERy5HjAHHujHvuit75emI9+swmHchHDQHnffr+/fJdx8yljhABCEAFiYkCIidcJ1vJeHoIB9sbrRpzGrfi5zuYjN+tDyLlGnq+IvYzFYvGh96qX+I0xn9cP5eI3RowRfw8ZN58yxldpBS8yNp5mjPbE9eSUMfOSJ4bI2NEYIgUaQ6RAY4gUaAyRAo0hUqAxRAo0hkiBxhAp0Bgid3TdX4M/8u/cIjN8AAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, Image" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NTypeInto.Target>
+                          </uix:NTypeInto>
+                          <ui:InputDialog Options="{x:Null}" OptionsString="{x:Null}" DisplayName="Cuadro de diálogo de entrada" sap:VirtualizedContainerService.HintSize="558,248" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="Nombre del equipo" Title="Introduzca el nombre del equipo">
+                            <ui:InputDialog.Result>
+                              <OutArgument x:TypeArguments="x:Object">[EQUIPO]</OutArgument>
+                            </ui:InputDialog.Result>
+                          </ui:InputDialog>
+                          <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Escribir en Equipo" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="558,263" sap2010:WorkflowViewState.IdRef="NTypeInto_15" ScopeIdentifier="2fd0ceb5-9844-4d76-8fc8-85ad9b4753ed" Text="[EQUIPO.ToString]" Version="V3">
+                            <uix:NTypeInto.Target>
+                              <uix:TargetAnchorable BrowserURL="http://gii.gr.sscc.cma.junta-andalucia.es/front/user.form.php" DesignTimeRectangle="233, 556, 155, 19" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT textfield_mobile1…'" FullSelectorArgument="&lt;webctrl id='mainformtable' tag='TABLE' /&gt;&lt;webctrl id='textfield_mobile1876329227' tableRow='10' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='mainformtable' tag='TABLE' /&gt;&lt;webctrl id='textfield_mobile1876329227' type='text' tag='INPUT' class='autocompletion-text-field ui-autocomplete-input' aaname='' /&gt;" Guid="8971fd0a-d446-400a-91aa-ba5c3316be61" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAJ8AAAAXCAYAAAAV+J1VAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVGhD7doxCsAgEETR3P964gnEQwjChikiBmKnmeYPvCqk+1jtFYyZRnzMtld8tdbIOUdKCdhKXamveSM+fSilRGsteu/AVupKfc0BjvhUJuHhJPWlzp6N+PQ0fv0A7KTOnhEffkV8sCE+2BAfbIgPNsQHG+KDDfHBhvhgQ3ywIT7YEB9sPuPjqgWnLa9auOfDSepqec+n6YPK1NMI7KSu5vC0V3yM/TniY6ZF3NCT48FTylFGAAAAAElFTkSuQmCC" InformativeScreenshot="aa51549e96fd56d09d1dda453abb8afe.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Incidencias Granada - Usuarios' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                    <uix:Target DesignTimeRectangle="74, 549, 154, 32" ElementType="Text" FriendlyName="'PC'" FullSelectorArgument="&lt;webctrl id='mainformtable' tag='TABLE' /&gt;&lt;webctrl tableRow='10' tag='TD' /&gt;" FuzzySelectorArgument="&lt;webctrl id='mainformtable' tag='TABLE' /&gt;&lt;webctrl type='' tag='TD' class='' aaname='PC' check:innerText='PC' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAJ4AAAAkCAYAAAB41INoAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADkSURBVHhe7dfRacMwFIbRzuLN6mGcWUxHCXiNQJa4bbDSQEjqKKb8L+eAHyS9flzJHwUBwiNCeEQIjwjhESE8IoRHhPCIEB4RwiNCeEQIjwjhESE8IoRHxGZ456+xhmG4fZ9zndvZxdY5PPJaeIelraqWw09cbb1GN9XtdN2bjm0BT3SHV8epTbWlpmGs+dT2ocP7E+8013g37eBV/W+8a4TCY4f+q/aXq5b37QjvOg39XNBvV3gXa3wPrmL4w2Z48B+ER4TwiBAeEcIjQnhECI8I4REhPCKER4TwiBAeEcIjoOobUe010Nw97g0AAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NTypeInto.Target>
+                            <uix:NTypeInto.VerifyOptions>
+                              <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                                <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                  <InArgument x:TypeArguments="x:Boolean" />
+                                </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                  <InArgument x:TypeArguments="x:Double" />
+                                </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                              </uix:VerifyExecutionTypeIntoOptions>
+                            </uix:NTypeInto.VerifyOptions>
+                          </uix:NTypeInto>
+                          <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Escribir en 'Usuario AD'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="558,227" sap2010:WorkflowViewState.IdRef="NTypeInto_8" ScopeIdentifier="2fd0ceb5-9844-4d76-8fc8-85ad9b4753ed" Text="[System.Text.RegularExpressions.Regex.Match(CORREO(0).tostring,&quot;^([^@]+)&quot;).Value]" Version="V3">
+                            <uix:NTypeInto.Target>
+                              <uix:TargetAnchorable BrowserURL="http://gii.gr.sscc.cma.junta-andalucia.es/front/user.form.php" DesignTimeRectangle="692, 636, 155, 19" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT textfield_phone21…'" FullSelectorArgument="&lt;webctrl id='mainformtable' tag='TABLE' /&gt;&lt;webctrl id='textfield_phone21393515924' tableRow='11' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='mainformtable' tag='TABLE' /&gt;&lt;webctrl id='textfield_phone21393515924' type='text' tag='INPUT' class='autocompletion-text-field ui-autocomplete-input' aaname='' /&gt;" Guid="c73d8d3f-699d-4ea3-a5a7-757028d706d3" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAJ8AAAAXCAYAAAAV+J1VAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVGhD7doxCsAgEETR3P964gnEQwjChikiBmKnmeYPvCqk+1jtFYyZRnzMtld8tdbIOUdKCdhKXamveSM+fSilRGsteu/AVupKfc0BjvhUJuHhJPWlzp6N+PQ0fv0A7KTOnhEffkV8sCE+2BAfbIgPNsQHG+KDDfHBhvhgQ3ywIT7YEB9sPuPjqgWnLa9auOfDSepqec+n6YPK1NMI7KSu5vC0V3yM/TniY6ZF3NCT48FTylFGAAAAAElFTkSuQmCC" InformativeScreenshot="a8909e26e08b113e1fa826d0250e30a1.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Incidencias Granada - Usuarios' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                    <uix:Target DesignTimeRectangle="493, 631, 194, 29" ElementType="Text" FriendlyName="'Usuario AD'" FullSelectorArgument="&lt;webctrl id='mainformtable' tag='TABLE' /&gt;&lt;webctrl tableRow='11' tag='TD' /&gt;" FuzzySelectorArgument="&lt;webctrl id='mainformtable' tag='TABLE' /&gt;&lt;webctrl type='' tag='TD' class='' aaname='Usuario AD' check:innerText='Usuario AD' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAMYAAAAhCAYAAACC2tRnAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHiSURBVHhe7dbBbcJAEEbh1EIfFAElUAENUAAF0ARNcOVAB/TAkauj5zBoskxsJKIIxe+TVlnW6/EizW/y0Ul6YDCkgsGQCgZDKhgMqWAwpILBkAoGQyoYDKlgMKSCwZAKBkMqvHUwLpdLt16v+7/SXxoMRtWYzFerVXc+n28r72u73Xbz+fzhrKzPZrP7qPZo2v5tMOLsu92u2+/3t9UvBCOv8V0IR7tP0/VyMPLbl73X67W/ttls+jmOx+P9Gvcvl8uHe0At7qNJGafT6dvzo4G5jxr5XC2eSb32LGiDAfbxvYZqajpeCkZueBwOh/76UDBauUmZ5335+QzCQC0M1QS12MN1zsKZQhWM/L2kl4LB4A3evr3HgkFTxi8GIwcjN2x+flszn6PFWn77U5PawWBozGgw2mZhrQoL4SAk7GX8FAzmOUi5SX8rGNTIwWP89MxAnRwmTdtgMNA2EfNocuY0OvjMOp/bJqNGDkbM456oPxQMxjP/SvG5/dcJ1I572+ewl1DHdWk0GNG81Zs3Giqu0XCBeV5vw8A69y4Wi6eCgfy8fI6MPfmXJdD0cb58tjhHGyRN22gwpCkyGFLBYEgFgyEVDIZUMBhSwWBIBYMhFQyGVDAYUsFgSAWDIT3ouk8MeHkmUe+nEgAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NTypeInto.Target>
+                          </uix:NTypeInto>
+                          <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Escribir en 'D.N.I.'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="558,227" sap2010:WorkflowViewState.IdRef="NTypeInto_11" ScopeIdentifier="2fd0ceb5-9844-4d76-8fc8-85ad9b4753ed" Text="[NIF(0).tostring]" Version="V3">
+                            <uix:NTypeInto.Target>
+                              <uix:TargetAnchorable BrowserURL="http://gii.gr.sscc.cma.junta-andalucia.es/front/user.form.php" DesignTimeRectangle="692, 665, 155, 19" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT textfield_registr…'" FullSelectorArgument="&lt;webctrl id='mainformtable' tag='TABLE' /&gt;&lt;webctrl id='textfield_registration_number1907477806' tableRow='12' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='mainformtable' tag='TABLE' /&gt;&lt;webctrl id='textfield_registration_number1907477806' type='text' tag='INPUT' class='autocompletion-text-field ui-autocomplete-input' aaname='' /&gt;" Guid="a8cc03d0-6e28-4322-9b2d-6684c0ef70a9" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAJ8AAAAXCAYAAAAV+J1VAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAC+SURBVGhD7doxCsMwFARRHdNlTpU0yVHc+EJp0lnhmy0sZJAxBCnbzMJrLNwNqpSCMdOIj9l2iO+1fOP2XGN6AH2pK/VVr8Sng/u8xvuTI2egL3WlvuoAS3wqk/AwkvpSZ/tKfLoaWz8APamzfZfxpZSa34FfEB9siA82xAcb4oMN8cGG+GBDfLAhPtgQH2yIDzbEB5tmfLxqwWinr1p4z4eR1NXpez5NBypTVyPQk7qqw9MO8TH2zxEfMy1iA53xArGVTbAcAAAAAElFTkSuQmCC" InformativeScreenshot="c157de9d42301a74528310a729186f11.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Incidencias Granada - Usuarios' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                                <uix:TargetAnchorable.Anchors>
+                                  <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                    <uix:Target DesignTimeRectangle="493, 660, 194, 29" ElementType="Text" FriendlyName="'D.N.I.'" FullSelectorArgument="&lt;webctrl id='mainformtable' tag='TABLE' /&gt;&lt;webctrl tableRow='12' tag='TD' /&gt;" FuzzySelectorArgument="&lt;webctrl id='mainformtable' tag='TABLE' /&gt;&lt;webctrl type='' tag='TD' class='' aaname='D.N.I.' check:innerText='D.N.I.' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAMYAAAAhCAYAAACC2tRnAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFASURBVHhe7djLbYNAGEVh10IfFAElUAENUACtUAk90ANLthNdwu8QczGKJT9QzichmzHMao7Ac0kANggDMAgDMAgDMAgDMAgDMAgDMAgDMAgDMAgDMAgDMAgDMAgDMO6GMY5jKssyZVl2Peq6TtM0LVdstW07X9f3/TLyPdZ13XL2Q/Novph7fQ/wTodhVFWVhmFYRtK8wPM8/zW2pgiappmPCGgvDIk4iAKf5M9hiBa5FrsTEegzFjth4GweCkOLeO+VKiLQPfHUIAyczdPCiO+6ljBwNk97lZJ4auggDJzJQ3++tVOl30QLen1++3TQuXac1rEURXGd04Whe/bCA17hMIyj7dqjMBSAdrFcGBFFzB1xEAbe7W4YwH9FGIBBGIBBGIBBGIBBGIBBGIBBGIBBGIBBGIBBGIBBGMBGSl8MpxuhMN5mpQAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector, Image" />
+                                  </scg:List>
+                                </uix:TargetAnchorable.Anchors>
+                              </uix:TargetAnchorable>
+                            </uix:NTypeInto.Target>
+                          </uix:NTypeInto>
+                          <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Escribir en 'INPUT'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="558,227" sap2010:WorkflowViewState.IdRef="NTypeInto_12" ScopeIdentifier="2fd0ceb5-9844-4d76-8fc8-85ad9b4753ed" Text="[CORREO(0).tostring]" Version="V3">
+                            <uix:NTypeInto.Target>
+                              <uix:TargetAnchorable BrowserURL="http://gii.gr.sscc.cma.junta-andalucia.es/front/user.form.php" DesignTimeRectangle="1101, 516, 215, 19" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT'" FullSelectorArgument="&lt;webctrl id='mainformtable' tag='TABLE' /&gt;&lt;webctrl name='_useremails[-1]' tableRow='7' tag='INPUT' type='text' /&gt;" FuzzySelectorArgument="&lt;webctrl id='mainformtable' tag='TABLE' /&gt;&lt;webctrl name='_useremails[-1]' class='' tag='INPUT' type='text' aaname='' /&gt;" Guid="ad95036a-d9c4-4f72-8596-fae51ffd18e3" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAANsAAAAXCAYAAACCqTqPAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAC4SURBVHhe7ds7CoUwFEXRN//pBUcgDkIQ8jiFoqCNn1utA6sSy02a5NfNrGRiMyvaIbZpmvowDL21BjyQjtLTflts+TCOY5/nuS/LAjyQjtLTPrgttpQoNHhPekpX67bYcvSd/QDcl67WiQ0+JDYoIjYoIjYoIjYoIjYoIjYoIjYoIjYoIjYoIjYoIjYochqbW//wrstb/96zwXvS0eV7tiwfUmKOPuC+dLQPLTvEZmbfTWxmJev9DyBZ/bBJ/IgrAAAAAElFTkSuQmCC" InformativeScreenshot="7ac779492c4af976ab97f5bace9e7aa2.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Incidencias Granada - Usuarios' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive" />
+                            </uix:NTypeInto.Target>
+                          </uix:NTypeInto>
+                          <uix:NClick ClickType="Single" DisplayName="Clic 'Añadir'" sap:VirtualizedContainerService.HintSize="558,166" sap2010:WorkflowViewState.IdRef="NClick_6" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="2fd0ceb5-9844-4d76-8fc8-85ad9b4753ed" Version="V3">
+                            <uix:NClick.Target>
+                              <uix:TargetAnchorable BrowserURL="http://gii.gr.sscc.cma.junta-andalucia.es/front/user.form.php" DesignTimeRectangle="944, 793, 48, 24" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Añadir'" FullSelectorArgument="&lt;webctrl id='mainformtable' tag='TABLE' /&gt;&lt;webctrl tableRow='17' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='mainformtable' tag='TABLE' /&gt;&lt;webctrl type='submit' tag='INPUT' class='submit' aaname='Añadir' check:text='Añadir' /&gt;" Guid="973fac96-8bcb-4ba0-9633-3b0ebdef3d7b" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADQAAAAcCAYAAAAuh5ywAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAF7SURBVFhH7ZShSgZBFIXNJpvJYjFYLT6A0WAQRGxGo81mMhos2oxiMWkQwWLQ4ivYLRaLxZEz8MnhMu4syo/7L3PhsLNz79w53+ywM2lkMV6gz6edqRbRgIYqogENVUQDKunjYStdHSxmvd1u5Of7/WaxdlIiegHJ3PnefDrenk0vl2vF/N3RcoZRncaxpqbns9V0ujuXXq/XszTWXKm2JKIXkCAEI/3GbB85UClfE9ELSBA6eV0lPf06Aft4spINaewnqzGHEQ2rL/M3h0vfef9CXOeL/YWs2AMRVSCumzbHvF875vhywGudNpYJjekjczLJOjfdBfQTCCKqQA7hcDHPV9Ezbq451UgAOXhcVwJiHT2jiCpQ3Di+O7De3Rg5mVG9G/sXIBpzui5tppouIDcdjSlHXVw3MSA1dLOSzMkkG3QB+Zi6uM5NTxSIRn4tkJ9uFxDwymtOY++nWnK1v9yfgaZNRAMaqogGNFQRDWioIsYLNJYYGVBKX0JnNA3NFxpfAAAAAElFTkSuQmCC" InformativeScreenshot="29e8f8f4eaccf711ca8f23ca8e005b15.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Incidencias Granada - Usuarios' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive" />
+                            </uix:NClick.Target>
+                          </uix:NClick>
+                          <If Condition="[EQUIPO.ToString &lt;&gt; &quot;&quot;]" DisplayName="Si" sap:VirtualizedContainerService.HintSize="558,2207" sap2010:WorkflowViewState.IdRef="If_3">
+                            <If.Then>
+                              <Sequence sap:VirtualizedContainerService.HintSize="400,1478" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <uix:NGoToUrl DisplayName="Ir a URL" sap:VirtualizedContainerService.HintSize="358,91" sap2010:WorkflowViewState.IdRef="NGoToUrl_2" Url="http://gii.gr.sscc.cma.junta-andalucia.es/front/computer.php" Version="V3" />
+                                <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Escribir en 'contiene'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="358,227" sap2010:WorkflowViewState.IdRef="NTypeInto_16" ScopeIdentifier="2fd0ceb5-9844-4d76-8fc8-85ad9b4753ed" Text="[EQUIPO.ToString]" Version="V3">
+                                  <uix:NTypeInto.Target>
+                                    <uix:TargetAnchorable BrowserURL="http://gii.gr.sscc.cma.junta-andalucia.es/front/computer.php" DesignTimeRectangle="820, 291, 113, 19" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT'" FullSelectorArgument="&lt;webctrl parentid='SearchSpanComputer0' tableRow='1' tag='TABLE' /&gt;&lt;webctrl name='criteria[0][value]' tableRow='1' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='SearchSpanComputer0' tag='TABLE' /&gt;&lt;webctrl name='criteria[0][value]' type='text' tag='INPUT' class='' aaname='' /&gt;" Guid="5219b8b8-480f-4b96-97d1-21972d9dc1f0" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAHUAAAAXCAYAAAA1OADtAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADlSURBVGhD7dpRBoVAFMbxu7qIaF2zjYjoqcdZR+Y5SiuIiDjXV8aV2wbO5zv8idHTzzyd+RRFYRrfM02TNU1jZVkaPIVKNH3f/6Ou62opJRvHUTkJXnDDbNv2RMXBsix2HIed56mcBC+4ZdgHKsQF6jO4wQ/zQMVVfvtB+Qh+GKESJVTChEqYUAkTKmFCJUyohAmVMKESJlTChEqYUAl7RdWWxm+vW5p5nrVPdRq88j513/cfatd1lzIOII6rrHwEr7wgjzHeqHisVFWVDcNwPYfQ+BvcUIDWdX2jtm17fSiOQgj2BUHRthFmGh+zAAAAAElFTkSuQmCC" InformativeScreenshot="db23ad20e65565854539007de5d3f31f.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Incidencias Granada - Computadores' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive">
+                                      <uix:TargetAnchorable.Anchors>
+                                        <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                          <uix:Target DesignTimeRectangle="725, 289, 91, 22" ElementType="Text" FriendlyName="'contiene'" FullSelectorArgument="&lt;webctrl parentid='SearchSpanComputer0' tableRow='1' tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='SearchSpanComputer0' tag='TABLE' /&gt;&lt;webctrl type='' tag='A' class='select2-choice' aaname='   contiene   ' check:innerText='contiene' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAF8AAAAaCAYAAADR2YAqAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIiSURBVGhD7ZlNjoJAEEbncngOLyCXcGNMjLL2DIYLqAcwbIw/W11g3Lgy0WhiUsPX0NDdto6D9BAnVclLhK5u4RWUEb6Io5ZoNBrE8muKO/nn85m22y2tVitaLBZMRcAnvMKvDE0+BpB0Op3odrsxFXO9XoVfWQBNPirD4t2CAsAzQpOPqtgmMNUCzwhNPnqTLZmpFnhGsPwaYPk18rnydyH5rZBi29iH8DHyo4FH/ii2jn0qLL9G3MpHa/A88jKCWbZ/FuT7PKV1xCOfvEFAQT4noMjMTxDrmG1Hy8nmJYiiJWvmx6G1qpjClpzzXnHhDCyXy5z5fP70/5JD+ZGQmAtPZAU4OVEQn8Jduj8VHhWfTXGZkLsrX5Uv1izmiUJka2JeITyVLY9JXxNjxXH9lul0Sp1OR2M4HNLlcrHmA3fyzStToojJ8zJxaiEAtl+Sb9wZgmzMnIftVL5+1Uvyi6UEYRjm4rvdLu33e2ue5P/It31Xwk/y35FtcjgcqNfrCfnj8diao+JOftm2U0a+WFMVmYgdpes8lp9+1oo2C0u3HclkMqF+v//SszGH8hMyKektrfRTtU0oJ/9MvrqWkKfKB0breVQ0Vf5961F+N0pyPB5ps9lYx0zcymeewvJrxCqfHyn/DdZHyvwyxT3wK1+mNJvNQj6/RnQLvMKvfI3YbrcL+QgMoDJIQm9iqgE+4VWKR6zXa10+x98Gy68tiL4BT++ZjIRDmHEAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                                        </scg:List>
+                                      </uix:TargetAnchorable.Anchors>
+                                    </uix:TargetAnchorable>
+                                  </uix:NTypeInto.Target>
+                                </uix:NTypeInto>
+                                <uix:NClick ClickType="Single" DisplayName="Clic 'Buscar'" sap:VirtualizedContainerService.HintSize="358,166" sap2010:WorkflowViewState.IdRef="NClick_8" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="2fd0ceb5-9844-4d76-8fc8-85ad9b4753ed" Version="V3">
+                                  <uix:NClick.Target>
+                                    <uix:TargetAnchorable BrowserURL="http://gii.gr.sscc.cma.junta-andalucia.es/front/computer.php" DesignTimeRectangle="1181, 288, 51, 24" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Buscar'" FullSelectorArgument="&lt;webctrl parentid='searchcriterias' tableCol='6' tableRow='1' tag='TABLE' /&gt;&lt;webctrl tableRow='1' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='searchcriterias' tag='TABLE' /&gt;&lt;webctrl type='submit' tag='INPUT' class='submit' aaname='Buscar' check:text='Buscar' /&gt;" Guid="7d748800-3c20-4980-8ea2-7c4053db74f3" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADcAAAAcCAYAAADFsCezAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE/SURBVFhH7ZS9DYMwEIVTZw5GoE9PTRVlCqagS4/EBHgDJHrqTJElcsHgh33mV/lTDH7SU2Tn7vB3ZzjQhrUPuEd92YwhD+eaIQ/nmiEP55qhRbhbeqTreWhRjMf/g6GVcCHdFvb+ydBLcPcsaPYCqspmXYRskuw/GV+eKJ+auMrtbOTUEQkj55pGaj+mKmnWSUhC/rIcbegFOPUA7M3C4TAnutu1FHSXN4zLs9ioZ8VNQMHQ++/cGjiZow6Oul3c3NXm0xtrwnjeR66l6u7StWRXTx9srG5n3ZC2Jqv/AzhcqVVwvfUkZN5knFlbrn8Nh8m1D2SHQddxaAWED4J5UAtCP8fMsab4Hbih+86ymIBEak1EQfS5/ZevMbuyOgfNa50Ew+Z9Cs5FQx7ONUMezjVDHs41Q/uA26I2DEf0BAsUPvbuVgUZAAAAAElFTkSuQmCC" InformativeScreenshot="10fe5b99a1a41289ba8792434068e14d.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Incidencias Granada - Computadores' /&gt;" SearchSteps="FuzzySelector, Image" Version="V1" Visibility="Interactive" />
+                                  </uix:NClick.Target>
+                                </uix:NClick>
+                                <uix:NGetText DisplayName="Obtener texto 'CZC54903SF'" sap:VirtualizedContainerService.HintSize="358,166" sap2010:WorkflowViewState.IdRef="NGetText_2" ScopeIdentifier="2fd0ceb5-9844-4d76-8fc8-85ad9b4753ed" TextString="[NSerieEquipo]" Version="V3">
+                                  <uix:NGetText.Target>
+                                    <uix:TargetAnchorable BrowserURL="http://gii.gr.sscc.cma.junta-andalucia.es/front/computer.php?is_deleted=0&amp;criteria%5B0%5D%5Bfield%5D=view&amp;criteria%5B0%5D%5Bsearchtype%5D=contains&amp;criteria%5B0%5D%5Bvalue%5D=gr01c0102&amp;search=Buscar&amp;itemtype=Computer&amp;start=0&amp;_glpi_csrf_token=ee2502bc33421c74e3c280e9d39a1788" DesignTimeRectangle="497, 455, 102, 108" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'CZC54903SF'" FullSelectorArgument="&lt;webctrl class='tab_cadrehov' parentid='massformComputer' tag='TABLE' /&gt;&lt;webctrl isleaf='1' tableCol='6' tableRow='2' tag='TD' /&gt;" FuzzySelectorArgument="&lt;webctrl class='tab_cadrehov' parentid='massformComputer' tag='TABLE' /&gt;&lt;webctrl isleaf='1' type='' class='' tag='TD' /&gt;" Guid="06a51056-ba23-4215-8ca0-a58da4a9154e" ImageBase64="" InformativeScreenshot="a16ec98c643013c99dfc39c7857bfef4.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Incidencias Granada - Computadores' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V1" Visibility="Interactive" />
+                                  </uix:NGetText.Target>
+                                </uix:NGetText>
+                                <uix:NGetText DisplayName="Obtener texto 'PCS – 15/6/008884'" sap:VirtualizedContainerService.HintSize="358,166" sap2010:WorkflowViewState.IdRef="NGetText_4" ScopeIdentifier="2fd0ceb5-9844-4d76-8fc8-85ad9b4753ed" TextString="[NCrijaEquipo]" Version="V3">
+                                  <uix:NGetText.Target>
+                                    <uix:TargetAnchorable BrowserURL="http://gii.gr.sscc.cma.junta-andalucia.es/front/computer.php?is_deleted=0&amp;criteria%5B0%5D%5Bfield%5D=view&amp;criteria%5B0%5D%5Bsearchtype%5D=contains&amp;criteria%5B0%5D%5Bvalue%5D=gr01c0102&amp;search=Buscar&amp;itemtype=Computer&amp;start=0&amp;_glpi_csrf_token=ee2502bc33421c74e3c280e9d39a1788" DesignTimeRectangle="1515, 455, 124, 108" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'PCS – 15/6/008884'" FullSelectorArgument="&lt;webctrl class='tab_cadrehov' parentid='massformComputer' tag='TABLE' /&gt;&lt;webctrl isleaf='1' tableCol='14' tableRow='2' tag='TD' /&gt;" FuzzySelectorArgument="&lt;webctrl class='tab_cadrehov' parentid='massformComputer' tag='TABLE' /&gt;&lt;webctrl isleaf='1' type='' class='' tag='TD' /&gt;" Guid="747b8a21-c62e-436f-9630-13740fc46fcd" ImageBase64="" InformativeScreenshot="31b8f96d35a81850237919f05d041d4c.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Incidencias Granada - Computadores' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
+                                  </uix:NGetText.Target>
+                                </uix:NGetText>
+                                <uix:NGetText DisplayName="Obtener texto 'HP'" sap:VirtualizedContainerService.HintSize="358,166" sap2010:WorkflowViewState.IdRef="NGetText_5" ScopeIdentifier="2fd0ceb5-9844-4d76-8fc8-85ad9b4753ed" TextString="[MarcaEquipo]" Version="V3">
+                                  <uix:NGetText.Target>
+                                    <uix:TargetAnchorable BrowserURL="http://gii.gr.sscc.cma.junta-andalucia.es/front/computer.php?is_deleted=0&amp;criteria%5B0%5D%5Bfield%5D=view&amp;criteria%5B0%5D%5Bsearchtype%5D=contains&amp;criteria%5B0%5D%5Bvalue%5D=gr01c0102&amp;search=Buscar&amp;itemtype=Computer&amp;start=0&amp;_glpi_csrf_token=ee2502bc33421c74e3c280e9d39a1788" DesignTimeRectangle="636, 455, 75, 108" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'HP'" FullSelectorArgument="&lt;webctrl class='tab_cadrehov' parentid='massformComputer' tag='TABLE' /&gt;&lt;webctrl isleaf='1' tableCol='8' tableRow='2' tag='TD' /&gt;" FuzzySelectorArgument="&lt;webctrl class='tab_cadrehov' parentid='massformComputer' tag='TABLE' /&gt;&lt;webctrl isleaf='1' type='' class='' tag='TD' /&gt;" Guid="ff020881-b61c-4243-974e-42b2c87b93a6" ImageBase64="" InformativeScreenshot="c1079b221051b99aff4b1ff43575478b.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Incidencias Granada - Computadores' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
+                                  </uix:NGetText.Target>
+                                </uix:NGetText>
+                                <uix:NGetText DisplayName="Obtener texto 'PRODESK 600'" sap:VirtualizedContainerService.HintSize="358,166" sap2010:WorkflowViewState.IdRef="NGetText_6" ScopeIdentifier="2fd0ceb5-9844-4d76-8fc8-85ad9b4753ed" TextString="[ModeloEquipo]" Version="V3">
+                                  <uix:NGetText.Target>
+                                    <uix:TargetAnchorable BrowserURL="http://gii.gr.sscc.cma.junta-andalucia.es/front/computer.php?is_deleted=0&amp;criteria%5B0%5D%5Bfield%5D=view&amp;criteria%5B0%5D%5Bsearchtype%5D=contains&amp;criteria%5B0%5D%5Bvalue%5D=gr01c0102&amp;search=Buscar&amp;itemtype=Computer&amp;start=0&amp;_glpi_csrf_token=ee2502bc33421c74e3c280e9d39a1788" DesignTimeRectangle="711, 455, 179, 108" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'PRODESK 600'" FullSelectorArgument="&lt;webctrl class='tab_cadrehov' parentid='massformComputer' tag='TABLE' /&gt;&lt;webctrl isleaf='1' tableCol='9' tableRow='2' tag='TD' /&gt;" FuzzySelectorArgument="&lt;webctrl class='tab_cadrehov' parentid='massformComputer' tag='TABLE' /&gt;&lt;webctrl isleaf='1' type='' class='' tag='TD' /&gt;" Guid="b676a69f-944d-4465-8b86-efbaeb4c34e1" ImageBase64="" InformativeScreenshot="37adf6dc627085f1d80e5bc1e15bc75e.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Incidencias Granada - Computadores' /&gt;" SearchSteps="Selector" Version="V1" Visibility="Interactive" />
+                                  </uix:NGetText.Target>
+                                </uix:NGetText>
+                              </Sequence>
+                            </If.Then>
+                            <If.Else>
+                              <Sequence sap:VirtualizedContainerService.HintSize="476,566" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <Assign DisplayName="Establecer valor de variable" sap:VirtualizedContainerService.HintSize="434,89" sap2010:WorkflowViewState.IdRef="Assign_1">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:String">[NCrijaEquipo]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:String">
+                                      <Literal x:TypeArguments="x:String" Value="" />
+                                    </InArgument>
+                                  </Assign.Value>
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                </Assign>
+                                <Assign DisplayName="Establecer valor de variable" sap:VirtualizedContainerService.HintSize="434,89" sap2010:WorkflowViewState.IdRef="Assign_2">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:String">[NSerieEquipo]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:String">
+                                      <Literal x:TypeArguments="x:String" Value="" />
+                                    </InArgument>
+                                  </Assign.Value>
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                </Assign>
+                                <Assign DisplayName="Establecer valor de variable" sap:VirtualizedContainerService.HintSize="434,89" sap2010:WorkflowViewState.IdRef="Assign_3">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:String">[MarcaEquipo]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:String">
+                                      <Literal x:TypeArguments="x:String" Value="" />
+                                    </InArgument>
+                                  </Assign.Value>
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                </Assign>
+                                <Assign DisplayName="Establecer valor de variable" sap:VirtualizedContainerService.HintSize="434,89" sap2010:WorkflowViewState.IdRef="Assign_4">
+                                  <Assign.To>
+                                    <OutArgument x:TypeArguments="x:String">[ModeloEquipo]</OutArgument>
+                                  </Assign.To>
+                                  <Assign.Value>
+                                    <InArgument x:TypeArguments="x:String">
+                                      <Literal x:TypeArguments="x:String" Value="" />
+                                    </InArgument>
+                                  </Assign.Value>
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                </Assign>
+                              </Sequence>
+                            </If.Else>
+                          </If>
+                          <p:WordApplicationScope AutoSave="False" DisplayName="Utilizar archivo de Word" FilePath="[string.Format(&quot;{0}\OneDrive - Junta de Andalucia\UAI Developers\Proyecto\plantilla_entrega_ptdu.docx&quot;, Environment.GetFolderPath(Environment.SpecialFolder.UserProfile))]" sap:VirtualizedContainerService.HintSize="558,2941" sap2010:WorkflowViewState.IdRef="WordApplicationScope_1">
+                            <p:WordApplicationScope.Body>
+                              <ActivityAction x:TypeArguments="ui:WordDocument">
+                                <ActivityAction.Argument>
+                                  <DelegateInArgument x:TypeArguments="ui:WordDocument" Name="WordDocumentScope" />
+                                </ActivityAction.Argument>
+                                <Sequence DisplayName="Hacer" sap:VirtualizedContainerService.HintSize="476,2766" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <p:WordReplaceText Found="{x:Null}" DisplayName="Reemplazar el texto del documento" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="WordReplaceText_2" Replace="[NOMBRE(0).tostring+&quot; &quot;+APELLIDOS(0).tostring]" ReplaceAll="True" Search="%[NombreApellidos]" />
+                                  <p:WordReplaceText Found="{x:Null}" DisplayName="Reemplazar el texto del documento" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="WordReplaceText_1" Replace="[NIF(0).tostring]" ReplaceAll="True" Search="%[NIF]" />
+                                  <p:WordReplaceText Found="{x:Null}" DisplayName="Reemplazar el texto del documento" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="WordReplaceText_3" Replace="[NOMBRE(0).tostring]" ReplaceAll="True" Search="%[Nombre]" />
+                                  <p:WordReplaceText Found="{x:Null}" DisplayName="Reemplazar el texto del documento" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="WordReplaceText_4" Replace="[APELLIDOS(0).tostring]" ReplaceAll="True" Search="%[Apellidos]" />
+                                  <p:WordReplaceText Found="{x:Null}" DisplayName="Reemplazar el texto del documento" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="WordReplaceText_5" Replace="[CORREO(0).tostring]" ReplaceAll="True" Search="%[Correo]" />
+                                  <p:WordReplaceText Found="{x:Null}" DisplayName="Reemplazar el texto del documento" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="WordReplaceText_6" Replace="[System.DateTime.Now.ToString(&quot;dd&quot;)]" ReplaceAll="True" Search="%[DIA]" />
+                                  <p:WordReplaceText Found="{x:Null}" DisplayName="Reemplazar el texto del documento" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="WordReplaceText_7" Replace="[System.DateTime.Now.ToString(&quot;MM&quot;)]" ReplaceAll="True" Search="%[MES]" />
+                                  <p:WordReplaceText Found="{x:Null}" DisplayName="Reemplazar el texto del documento" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="WordReplaceText_8" Replace="[System.DateTime.Now.ToString(&quot;yyyy&quot;)]" ReplaceAll="True" Search="%[AAAA]" />
+                                  <p:WordReplaceText Found="{x:Null}" DisplayName="Reemplazar el texto del documento" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="WordReplaceText_9" Replace="[MarcaEquipo]" ReplaceAll="True" Search="%[MarcaEquipo]" />
+                                  <p:WordReplaceText Found="{x:Null}" DisplayName="Reemplazar el texto del documento" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="WordReplaceText_10" Replace="[ModeloEquipo]" ReplaceAll="True" Search="%[ModeloEquipo]" />
+                                  <p:WordReplaceText Found="{x:Null}" DisplayName="Reemplazar el texto del documento" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="WordReplaceText_11" Replace="[NSerieEquipo]" ReplaceAll="True" Search="%[NSerieEquipo]" />
+                                  <p:WordReplaceText Found="{x:Null}" DisplayName="Reemplazar el texto del documento" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="WordReplaceText_12" Replace="[NCrijaEquipo]" ReplaceAll="True" Search="%[NCrijaEquipo]" />
+                                  <p:WordExportToPdf DisplayName="Guardar documento como PDF" FilePath="[string.Format(&quot;{0}\OneDrive - Junta de Andalucia\UAI Developers\Proyecto\PDF\&quot;+NIF(0).tostring+&quot;.pdf&quot;, Environment.GetFolderPath(Environment.SpecialFolder.UserProfile))]" sap:VirtualizedContainerService.HintSize="434,120" sap2010:WorkflowViewState.IdRef="WordExportToPdf_1" />
+                                </Sequence>
+                              </ActivityAction>
+                            </p:WordApplicationScope.Body>
+                          </p:WordApplicationScope>
+                        </Sequence>
+                      </If.Then>
+                      <If.Else>
+                        <Sequence sap:VirtualizedContainerService.HintSize="400,81" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </Sequence>
+                      </If.Else>
+                    </If>
+                    <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Crear carpeta" sap:VirtualizedContainerService.HintSize="682,89" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[string.Format(&quot;{0}\OneDrive - Junta de Andalucia\UAI Developers\Proyecto\CarpetasPersonales\&quot;+System.Text.RegularExpressions.Regex.Match(CORREO(0).tostring,&quot;^([^@]+)&quot;).Value, Environment.GetFolderPath(Environment.SpecialFolder.UserProfile))]" />
+                  </Sequence>
+                </ActivityAction>
+              </ui:ForEachFileX.Body>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:ForEachFileX>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwgAADsIBFShKgAAABzxJREFUWEfVVmtMG1cW9vgBGLCBGHvGz/EDPzB+zIwfYztgCDFJw8MQkkACuxjbGFLCkpAYsI1xaKPQpqJNqq4iVd0fK21bUW1V5cc2bX+s9kerfUlJqtVuq6CVVkn6SDcR26SrhvfsHTNGiZK2CUu12k86upZ85txzvvPdey7r/xd8NgTxOfcZG8orzoeYf39cyAxKNq9JhBd0ScOF3Yr+rHXJ+8UhYzg4EbVhge1sxvXHQcNIEKnKVJ+Wjlvm5En7DUUSuyFP2G+UDtuvVo21jGibyTzGdetx/JUkb+/5UL120nVJN+leqciQFG2aCTeVH8MW+D2216QdrnLGfevRPNMF+2eCZ9AJYj63uf4kSYlPuCh2BF8rjBBzup/tDIhsKIf5ZOtQ5pZy5MMWK5oiPgTVr+YS0KbdVNGgg2JFCArqsX5rizfNdDwzuPUswCFjGZogjqlS+M3c5rQhoy6KGwMJRIGFcQoZqr1CxPcSxTLR1p0KRaCCpz6KW2UJ2wfa+3qvz3hWxEfJZbr6bALAoJ9WXS/rdQaVO+1bJ0b0oLnUkPYkNWnnTV2GXKM3B4ks26d2/A1LBi+zerGVjQR6sUX5oP9XFT+pUTKf/3dASJSDT9U7FOP2CyCBxVz1IJHP90x3xnWdvl5+hLjNijIsRIi1wh7bVddQc1BjNXKZMJuH82idUJ1wDGrTrltAfIzwXCumtO/iwHNHjbantsvLumzvg/5vsMAN4/f0JxrP2w8GxEyYzaFIJmS7Jxs81mf976MTjmWm+jVlCv+i85W+Y5ZqeyGbz4PUkdoUJ4zdySXACmNL3G7zO4V+tYYJtTm4OqpL0BE8Jhu3fbZR/aRr0X6q7re6dqtFIpVkld4x1ucV9GKXAf2rTBsoftRxUzu4MybGtQXZYE8KYXkpZDjsIqzP1v0ObJpT/pp6wvE5NuYf2tXZKGRcWUItLFAP1F5gh7HlDRZCtiXFgO+tmkiLScQk+kTwdNdJaqeDU2jKcRNUn1W+ZtJ1zzLlf7dhvI1g3LIQSrZxkPrKZnaX6TotwnUWcKq4n/yHejCwv0hV/mRirPLY2OZ+0qxK4m+D6heY6oHy3XfQI/Yzetz00BlX7rCrkCO1F6EIvrjBQo/lNr/TfLy0UiFg3B4P6oBJUP1CS8xw0vuX3NCh26AcxT5uSXY0M24PwNtQW2Ab2DXEDlm/AJtnWYDC+GpZzP0H9BDpY9x+GLIKBfvQTB+mz3hfV6edd7OVAwGCBO76TjW+KqqEixnXh1B5oKZGNOD9FLCwLkZwN+SF7PPOeNt0dfvuxzuSfFTI0425esFFMwc2zg4d+tZTJvE/151u9Sqtmu+cdKVycV5hUD8Dhezf5NoAWFgSxMjfIEGHiXH7fkjb9WrpSNVLaNrxNdP3NTB+b7mmd581txFSxu07YXm6sZMfdV6970iu8nqsV+AOx1MlKvj7xShAyzjimLEdXDpXcr0H67JukrykfRrfhTorfnDOh06PqCUx8h0ojH2bYwHcjHelh7efR3wGmHF7NNAOs16XcL0Gev8venPaQPW30THijD3qQxg3FuxVFRe4y8R89zYJbQXAeM4SidALS4igV+UYbTtfEHV+Q19I2STC2Gr5gOeTpkx0n9ZmejQLKl9Fvqrf2qpMYhvVA+EtgwF0STdEtBcjJdnLBPGpIWdiZ5NszPpLOG6eheNVsxKwikaMs9JR6+zusx2z/un9M0V92GfglQRakG0DxYsQ80h/TbpYBz/6ZoQDGoUx4/uFJu36GggwWz3YfF5+3HpOvb9KwrixDHsxTsO5A0PgiP4T/H8PJJk1+jdt+pMeev1SMe5YFB1zUgWHHRSbZqHXviDoJd7QtJAPzweRAc5zpxoOqlLEZbpqpvolwMaH6LB9D18p2KCtsp3g7n65c9g45ZunfekTsq4T9wotWLBmjy1dBNAOpUy4qdJhJ8XtI9b4Yfzv2kh1D6yWP6gl/JAX0Y46fg4C3gFB1u/8tPMWGELnBNXwA8IxtNk5dS+27QfP8Q/K46aPaBOPmj8Cr6U/gu+vge8WQFLZqztnmjRJScDDld+H/dscb3yzfTSqZ8KBswuXQdXpxgOGjPdPgDqmevcSePP/Xhw17CmybMtnXLMox2SQoRuXlO5TOXgt5WRei5jMD0pIRchct+flgwl1yvk2qPwa3Q7AxAOJICecq6Ij3o81XTX1TDgWq3W0E65M+V7UTDjpB8cqbeAYfoXELWcFQfljz3OlXsX2tNWUIDs06sCpvUPapOvX2rTzOmBlAbC6Shv4vYIcx66hg9tjSrJyfZ7Y+t0+U8ZzARmzfCpN2OakCetVQOvF4m5lLU9RuKn3PayT5Wmbzaj/+ZZjYHy/Jx23frIe2zYH9vmrZsz1qrLBrFj3xnhibrA0kN8OtxbsQ1rpldtWXg/VCzeUv1k0RlqFxj4HAWI20bHX40uC3CaBHzJxSxi3/xVYrP8AnkKgDLK+iTwAAAAASUVORK5CYII=" InformativeScreenshot="821e5698077c063a67b87684b34c261e.jpg" Selector="&lt;html app='chrome.exe' title='Incidencias Granada - Autenticacion' /&gt;" Url="http://gii.gr.sscc.cma.junta-andalucia.es/index.php" />
+      </uix:NApplicationCard.TargetApp>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </uix:NApplicationCard>
+  </ueab:SequenceX>
+</Activity>
