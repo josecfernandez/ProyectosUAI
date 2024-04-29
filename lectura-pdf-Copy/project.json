@@ -3,6 +3,7 @@
   "description": "Tarea en blanco",
   "main": "Main.xaml",
   "dependencies": {
+    "UiPath.ActiveDirectoryDomainServices.Activities": "[1.5.0]",
     "UiPath.ComplexScenarios.Activities": "[1.3.0]",
     "UiPath.Excel.Activities": "[2.16.0]",
     "UiPath.Mail.Activities": "[1.18.1]",

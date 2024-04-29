@@ -5,10 +5,10 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1174,12203</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1030,12405</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="43">
+    <scg:List x:TypeArguments="x:String" Capacity="86">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -52,10 +52,15 @@
       <x:String>UiPath.UIAutomationNext.Contracts</x:String>
       <x:String>UiPath.Shared.Activities.Business</x:String>
       <x:String>UiPath.Word.Activities</x:String>
+      <x:String>System.Management.Automation</x:String>
+      <x:String>System.Dynamic</x:String>
+      <x:String>UiPath.ActiveDirectoryDomainServices</x:String>
+      <x:String>UiPath.ActiveDirectoryDomainServices.Service</x:String>
+      <x:String>UiPath.ActiveDirectoryDomainServices.Activities</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="65">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="130">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -120,6 +125,9 @@
       <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
       <AssemblyReference>System.CodeDom</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>System.Management.Automation</AssemblyReference>
+      <AssemblyReference>UiPath.ActiveDirectoryDomainServices</AssemblyReference>
+      <AssemblyReference>UiPath.ActiveDirectoryDomainServices.Activities</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <sap:WorkflowViewStateService.ViewState>
@@ -129,7 +137,7 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <ueab:SequenceX DisplayName="Single Excel Process Scope" sap:VirtualizedContainerService.HintSize="876,12138" sap2010:WorkflowViewState.IdRef="SequenceX_1">
+  <ueab:SequenceX DisplayName="Single Excel Process Scope" sap:VirtualizedContainerService.HintSize="876,12300" sap2010:WorkflowViewState.IdRef="SequenceX_1">
     <ueab:SequenceX.Variables>
       <Variable x:TypeArguments="ue:IWorkbookQuickHandle" Default="[new WorkbookQuickHandle(workbookPath:=&quot;Project_Notebook.xlsx&quot;,visible:=True,autoSave:=False,createNew:=True,readOnly:=False,isWorkspace:=True)]" Name="Notes" />
       <Variable x:TypeArguments="x:String" Name="texto" />
@@ -151,7 +159,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Utilizar Navegador Chrome: Incidencias Granada - Autenticacion" sap:VirtualizedContainerService.HintSize="834,12048" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" ScopeGuid="2fd0ceb5-9844-4d76-8fc8-85ad9b4753ed" Version="V2">
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Utilizar Navegador Chrome: Incidencias Granada - Autenticacion" sap:VirtualizedContainerService.HintSize="834,12210" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" ScopeGuid="2fd0ceb5-9844-4d76-8fc8-85ad9b4753ed" Version="V2">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
@@ -162,7 +170,7 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence DisplayName="Hacer" sap:VirtualizedContainerService.HintSize="800,11822" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <Sequence DisplayName="Hacer" sap:VirtualizedContainerService.HintSize="800,11984" sap2010:WorkflowViewState.IdRef="Sequence_5">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -204,7 +212,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </uix:NClick>
-            <ui:ForEachFileX DisplayName="Para cada archivo en la carpeta" Folder="[string.Format(&quot;{0}\OneDrive - Junta de Andalucia\UAI Developers\Proyecto\Altas&quot;, Environment.GetFolderPath(Environment.SpecialFolder.UserProfile))]" sap:VirtualizedContainerService.HintSize="758,10990" sap2010:WorkflowViewState.IdRef="ForEachFileX_1" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="False">
+            <ui:ForEachFileX DisplayName="Para cada archivo en la carpeta" Folder="[string.Format(&quot;{0}\OneDrive - Junta de Andalucia\UAI Developers\Proyecto\Altas&quot;, Environment.GetFolderPath(Environment.SpecialFolder.UserProfile))]" sap:VirtualizedContainerService.HintSize="758,11152" sap2010:WorkflowViewState.IdRef="ForEachFileX_1" IncludeSubDirectories="False" OrderBy="NameAscFirst" SkipFolderWithoutPermission="False">
               <ui:ForEachFileX.Body>
                 <ActivityAction x:TypeArguments="si:FileInfo, x:Int32">
                   <ActivityAction.Argument1>
@@ -218,7 +226,7 @@
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <Sequence DisplayName="Hacer" sap:VirtualizedContainerService.HintSize="724,10727" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                  <Sequence DisplayName="Hacer" sap:VirtualizedContainerService.HintSize="724,10889" sap2010:WorkflowViewState.IdRef="Sequence_4">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -644,6 +652,11 @@
                       </If.Else>
                     </If>
                     <ui:CreateDirectory ContinueOnError="{x:Null}" Output="{x:Null}" DisplayName="Crear carpeta" sap:VirtualizedContainerService.HintSize="682,89" sap2010:WorkflowViewState.IdRef="CreateDirectory_1" Path="[string.Format(&quot;{0}\OneDrive - Junta de Andalucia\UAI Developers\Proyecto\CarpetasPersonales\&quot;+System.Text.RegularExpressions.Regex.Match(CORREO(0).tostring,&quot;^([^@]+)&quot;).Value, Environment.GetFolderPath(Environment.SpecialFolder.UserProfile))]" />
+                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" WorkflowFileName="{x:Null}" DisplayName="Invocar archivo de flujo de trabajo" sap:VirtualizedContainerService.HintSize="682,122" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False">
+                      <ui:InvokeWorkflowFile.Arguments>
+                        <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                      </ui:InvokeWorkflowFile.Arguments>
+                    </ui:InvokeWorkflowFile>
                   </Sequence>
                 </ActivityAction>
               </ui:ForEachFileX.Body>
